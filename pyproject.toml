@@ -1,6 +1,6 @@
 [project]
 name = "powertrace-hooks"
-version = "0.1.0"
+version = "0.1.1"
 description = "Automated stack trace logging and visualization"
 authors = [{name = "Quinten Roets", email = "qdr2104@columbia.edu"}]
 license = {text = "MIT"}
