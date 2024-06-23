@@ -1,13 +1,13 @@
 [project]
 name = "powertrace-hooks"
 version = "0.1.0"
-description = "Template for Python package published on PyPI"
+description = "Automated stack trace logging and visualization"
 authors = [{name = "Quinten Roets", email = "qdr2104@columbia.edu"}]
 license = {text = "MIT"}
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "package-utils[context] >=0.6.1, <1",
+    "powertrace >=0.1.1, <1",
 ]
 
 [project.optional-dependencies]
@@ -40,6 +40,11 @@ no_implicit_reexport = false
 [tool.pytest.ini_options]
 pythonpath = [
     "src", ".",
+]
+
+[tool.setuptools]
+py-modules = [
+    "sitecustomize"
 ]
 
 [tool.ruff]

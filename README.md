@@ -4,17 +4,23 @@
 ![Operating system](https://img.shields.io/badge/os-linux%20%7c%20macOS%20%7c%20windows-brightgreen)
 ![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
 
-## Usage
+Detailed stack trace logging and visualization.
+* Rich traceback visualization
+* Also works for headless scripts
+* Easy to reproduce visualization
 
+## Usage
 Run
-```shell
-powertrace_hooks
+```python
+import powertrace
+
+powertrace.visualize_traceback()
 ```
+To visualize the current traceback.
+
 ## Installation
+Run
 ```shell
 pip install powertrace-hooks
 ```
-or
-```shell
-pip install git+https://github.com/quintenroets/powertrace-hooks.git
-```
+to enable automated detailed stack trace logging and visualization for all Python scripts.
