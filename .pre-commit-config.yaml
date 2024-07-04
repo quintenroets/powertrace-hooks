@@ -41,6 +41,7 @@ repos:
   - repo: https://github.com/quintenroets/package-dev-tools
     rev: v0.6.1
     hooks:
+      - id: check-coverage
       - id: check-shields
       - id: check-version
 
@@ -48,4 +49,4 @@ ci:
     autofix_commit_msg: auto fixes from pre-commit hooks
     autoupdate_commit_msg: 'pre-commit auto updates'
     autoupdate_schedule: monthly
-    skip: [mypy, run-tests]
+    skip: [mypy, run-tests, check-coverage]
