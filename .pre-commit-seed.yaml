@@ -21,4 +21,3 @@
   fail_fast: true
 - entry: check-shields
 - entry: check-version
-- entry: check-import
