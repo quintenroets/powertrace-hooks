@@ -20,11 +20,17 @@
   entry: coverage run
   fail_fast: true
 <<<<<<< HEAD
+<<<<<<< HEAD
 - entry: check-shields
 - entry: check-version
 =======
+=======
+>>>>>>> template
 - entry: check-coverage
 - entry: check-shields
 - entry: check-version
 - entry: check-import
+<<<<<<< HEAD
+>>>>>>> template
+=======
 >>>>>>> template
