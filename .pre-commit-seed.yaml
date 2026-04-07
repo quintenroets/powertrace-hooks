@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 - entry: docformatter
   args: [--in-place, --make-summary-multi-line, --close-quotes-on-newline, --wrap-summaries, "88"]
   pass_filenames: true
@@ -21,3 +22,5 @@
   fail_fast: true
 - entry: check-shields
 - entry: check-version
+=======
+>>>>>>> template
