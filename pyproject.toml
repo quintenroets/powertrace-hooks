@@ -7,7 +7,7 @@ license = "MIT"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "powertrace >=0.1.1, <1",
+    "powertrace >=0.1.6, <1",
 ]
 
 [project.optional-dependencies]
