@@ -11,7 +11,7 @@ from typing import Any
 
 
 def install_powertrace() -> None:
-    import powertrace # noqa: PLC0415
+    import powertrace  # noqa: PLC0415
 
     powertrace.install_traceback_hooks()
 
