@@ -7,12 +7,7 @@ license = "MIT"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-<<<<<<< HEAD
     "powertrace >=0.1.6, <1",
-=======
-    "package-utils[context] >=0.8.3, <1",
-    "powercli >=0.4.0, <1",
->>>>>>> template
 ]
 
 [project.optional-dependencies]
