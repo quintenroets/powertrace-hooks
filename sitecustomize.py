@@ -7,7 +7,7 @@ overhead of this file to the microseconds scale.
 
 import sys
 import threading
-from typing import Any
+from types import TracebackType
 
 
 def install_powertrace() -> None:
@@ -16,14 +16,18 @@ def install_powertrace() -> None:
     powertrace.install_traceback_hooks()
 
 
-def excepthook(*args: Any) -> None:
+def excepthook(
+    type_: type[BaseException],
+    value: BaseException,
+    traceback: TracebackType | None,
+) -> None:
     install_powertrace()
-    sys.excepthook(*args)
+    sys.excepthook(type_, value, traceback)
 
 
-def threading_excepthook(*args: Any) -> None:
+def threading_excepthook(args: threading.ExceptHookArgs) -> None:
     install_powertrace()
-    threading.excepthook(*args)
+    threading.excepthook(args)
 
 
 sys.excepthook = excepthook
