@@ -5,7 +5,7 @@ description = "Automated stack trace logging and visualization"
 authors = [{name = "Quinten Roets", email = "qdr2104@columbia.edu"}]
 license = "MIT"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = [
     "powertrace >=0.1.6, <1",
 ]
