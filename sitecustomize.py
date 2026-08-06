@@ -1,8 +1,7 @@
 """This file is executed before every script so performance is critical.
 
-Most scrips will never call the hooks below, so we install them lazily
-only when they are needed. Lazy imports & installs limit the total
-overhead of this file to the microseconds scale.
+The script resolves the hooks and extra builtins lazily to limit the total
+overhead to microseconds.
 """
 
 import sys
