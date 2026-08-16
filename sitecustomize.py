@@ -1,4 +1,5 @@
-"""This file is executed before every script so performance is critical.
+"""
+Executed before every script, so performance is critical.
 
 The script resolves the hooks and extra builtins lazily to limit the total
 overhead to microseconds.
