@@ -19,9 +19,6 @@ dev = [
 [project.urls]
 "Source Code" = "https://github.com/quintenroets/powertrace-hooks"
 
-[project.scripts]
-powertrace-hooks = "powertrace_hooks.cli:entry_point"
-
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
@@ -68,6 +65,3 @@ ignore = [
 
 [tool.ruff.lint.per-file-ignores]
 "__init__.py" = ["F401"]
-
-[tool.setuptools.package-data]
-powertrace_hooks = ["py.typed"]
