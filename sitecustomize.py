@@ -1,34 +1,50 @@
 """
-Executed before every script, so performance is critical.
-
-The script resolves the hooks and extra builtins lazily to limit the total
-overhead to microseconds.
+Lazy imports let this module be part of sitecustomize.
 """
 
+import _thread
+import atexit
 import sys
-import threading
-from types import TracebackType
 
+TYPE_CHECKING = False
 
-def install_powertrace() -> None:
-    import powertrace  # noqa: PLC0415
-
-    powertrace.install_traceback_hooks()
+if TYPE_CHECKING:
+    import threading
+    from types import TracebackType
 
 
 def excepthook(
     type_: type[BaseException],
     value: BaseException,
-    traceback: TracebackType | None,
+    traceback: "TracebackType | None",
 ) -> None:
-    install_powertrace()
-    sys.excepthook(type_, value, traceback)
+    # importing libraries clears interpreter's interrupt exit status
+    if not issubclass(type_, KeyboardInterrupt):
+        import powertrace  # noqa: PLC0415
+
+        powertrace.excepthook(type_, value, traceback)
 
 
-def threading_excepthook(args: threading.ExceptHookArgs) -> None:
-    install_powertrace()
-    threading.excepthook(args)
+def threading_excepthook(args: "threading.ExceptHookArgs") -> None:
+    import powertrace  # noqa: PLC0415
+
+    powertrace.threading_excepthook(args)
+
+
+def exit_if_failed() -> None:
+    if "powertrace" in sys.modules:
+        import powertrace  # noqa: PLC0415
+
+        powertrace.exit_if_failed()
 
 
 sys.excepthook = excepthook
-threading.excepthook = threading_excepthook
+atexit.register(exit_if_failed)
+
+if "threading" in sys.modules:
+    import threading
+
+    threading.excepthook = threading_excepthook
+else:
+    # threading copies _thread._excepthook into its excepthook at import time
+    _thread._excepthook = threading_excepthook  # noqa: SLF001
