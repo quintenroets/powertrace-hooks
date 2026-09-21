@@ -1,13 +1,13 @@
 [project]
 name = "powertrace-hooks"
 version = "0.1.2"
-description = "Automated stack trace logging and visualization"
+description = "Improved rich tracebacks in every Python process"
 authors = [{name = "Quinten Roets", email = "qdr2104@columbia.edu"}]
 license = "MIT"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "powertrace >=0.1.6, <1",
+    "powertrace >=0.2.1, <1",
 ]
 
 [project.optional-dependencies]
